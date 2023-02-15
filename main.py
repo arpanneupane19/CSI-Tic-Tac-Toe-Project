@@ -117,15 +117,16 @@ class TicTacToe:
         elif self.winner == "O":
             moves = 0
             for row in self.board:
-                moves += row.count("X")
+                moves += row.count("O")
             self.display_board()
-            print("{} won in {} moves.".format(self.current_player, moves + 1))
+            print("{} won in {} moves.".format(self.current_player, moves))
 
     # if there are no winners, check for a draw by checking if the board is filled up
     def check_draw(self):
         if self.winner is None:
             if (self.board[0][0] != "_" and self.board[0][1] != '_' and self.board[0][2] != '_') and (self.board[1][0] != '_' and self.board[1][1] != '_' and self.board[1][2] != '_') and (self.board[2][0] != '_' and self.board[2][1] != '_' and self.board[2][2] != '_'):
                 self.winner = "Draw!".upper()
+                self.display_board()
                 print('\n{}\n'.format(self.winner))
                 self.game_over = True
 
